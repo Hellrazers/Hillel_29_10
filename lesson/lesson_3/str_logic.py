@@ -45,3 +45,9 @@ print( (False is True) or True ) # False is True => False or True => True
 print( (False is True) and True ) # False is True => False or True => False
 # 7/0 #ZeroDivisionError: division by zero
 
+
+value_str = 'di\'vision by zero'
+
+for index, value in enumerate(value_str):
+    print(f'idex: {index}, v: {value}')
+
