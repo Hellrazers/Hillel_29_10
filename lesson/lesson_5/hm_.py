@@ -60,7 +60,7 @@ space_academy = {
             "is_on_scholarship": True,
             "courses_enrolled": ["Exo-Flora Analysis", "Genetic Splicing", "Invertebrate Psychology"],
             "grades": {"Exo-Flora Analysis": 85, "Genetic Splicing": 78},
-            "emergency_contact": ("Tobias Dax", "Father", "+3-222-TRIL-99"),
+            "emergency_contact": ("Tobias Dax", "Father"," +3-222-TRIL-99"),
         },
         {
             "id": "S-004",
@@ -84,8 +84,14 @@ space_academy = {
 
 # Рівень "Новачок" (Доступ по ключах):
 #
+
+value = []
     # Вивести на екран ім'я декана академії.
-    # Вивести назву другої лабораторії факультету ксенобіології (xenobiology).
+print(space_academy.get('administration').get('dean', 'asdasda'))
+print(space_academy['administration']['dean'])
+
+# Вивести назву другої лабораторії факультету ксенобіології (xenobiology).
+#space_academy.get('departments').get('xenobiology').get('labs')[-1]
     # Вивести телефон екстреного зв'язку (emergency_contact) першого студента в списку.
 
 
@@ -96,6 +102,35 @@ space_academy = {
     #
     # Написати цикл, який виведе імена всіх студентів та їхній середній бал (gpa). -> створить новий список з іменами студентів
     #
-    # Порахувати загальний бюджет (budget_credits) всіх факультетів академії.
+# students = space_academy.get('students')
+#
+# for student in students:
+#     name_student = student.get('name')
+#     gpa_avg = student.get('gpa')
+#
+#     print(name_student, gpa_avg)
+#     print("-" * 80)
+# Порахувати загальний бюджет (budget_credits) всіх факультетів академії.
+
+count = 0
+departments =  space_academy.get('departments')
+for k, v in departments.items():
+    print(f'key = {k}, value = {v}')
+    print(v['budget_credits'])
+    count += v['budget_credits']
+
+result = sum(v.get('budget_credits') for v in departments.values())
+print(result)
+print(count)
     #
     # Знайти всіх студентів, які навчаються на стипендії (is_on_scholarship: True), і вивести їхні ID.
+space_academy.get('students') #-> list
+space_academy.get('students')[1]#-> dict
+space_academy.get('students')[1].get('is_on_scholarship')#->bool
+
+for value in space_academy.get('students'):
+    print(value.get('is_on_scholarship'))
+    if value.get('is_on_scholarship'):
+        print(value.get('id'))
+    else:
+        print(f'Студент з {value.get('id')} не має стипендії')
