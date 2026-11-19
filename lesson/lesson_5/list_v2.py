@@ -1,3 +1,5 @@
+from faker.providers.currency import pt_BR
+
 list_1 = list(range(10))
 print(list_1)
 # list_2:list = []
